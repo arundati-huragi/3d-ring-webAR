@@ -46,10 +46,10 @@ Through this project, I gained hands-on experience with modern web technologies,
 ## Installation and Setup
 
 1. **Clone the Repository**:
-   ```bash
+   bash
    git clone https://github.com/arundati-huragi/3D-Jewellery-Display.git
    cd 3D-Jewellery-Display
-   ```
+   
 
 2. **Run Locally**:
    - Open `index.html` directly in a WebXR-compatible browser (e.g., Chrome or Firefox).
@@ -78,13 +78,8 @@ Through this project, I gained hands-on experience with modern web technologies,
 
 Experience the live application: [https://arundati-huragi.github.io/3d-ring-webAR/]
 
-
-
-
 I'm passionate about web development and AR/VR technologies. 
 - GitHub: [arundati-huragi](https://github.com/arundati-huragi)
-- LinkedIn: [Your LinkedIn Profile] (if applicable)
 
----
 
 Built with using A-Frame and WebXR for an immersive web experience.
