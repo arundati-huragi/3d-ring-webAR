@@ -14,6 +14,44 @@
   <script src="./components/state-manager.js"></script>
   <script src="./components/metal-enhance.js"></script>
 
+  <script>
+    function resetRing(activeRing) {
+      // Reset active ring position and scale
+      if (activeRing && activeRing.originalPosition && activeRing.originalScale) {
+        activeRing.object3D.scale.copy(activeRing.originalScale);
+        activeRing.object3D.position.copy(activeRing.originalPosition);
+      }
+      window.activeRing = null;
+
+      // Re-enable all rings
+      document.querySelectorAll('[ring-focus]').forEach(ring => {
+        ring.classList.add('clickable');
+        ring.setAttribute('material', 'opacity: 1');
+        ring.setAttribute('auto-rotate', '');
+      });
+      // Hide reset button
+      const resetButton = document.querySelector('#resetButton');
+      if (resetButton) resetButton.style.display = 'none';
+    }
+  </script>
+
+  <style>
+    #resetButton {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #813cc1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+      display: none;
+    }
+  </style>
+
+  <button id="resetButton" onclick="resetRing(window.activeRing)">RESET</button>
 </head>
 
 <body>
@@ -39,12 +77,14 @@
   look-controls
   cursor="rayOrigin: mouse"
   raycaster="objects: .clickable">
-  
-  <!-- FIXED CLOSE BUTTON (HUD) -->
+</a-camera>
+
+  <!-- FIXED RESET BUTTON (HUD) -->
   <a-entity
   id="resetButton"
   class="clickable"
-  position="-0.9 0.45 -1"
+  position="0 1.5 1.8"
+  look-at="[camera]"
   visible="false"
   geometry="primitive: plane; width: 0.2; height: 0.18"
   material="color:#111; opacity:0.95"
@@ -53,13 +93,6 @@
   animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1"
   onclick="resetRing(window.activeRing)">
 </a-entity>
-
-
-  
-
-</a-camera>
-
-
 
   <!-- ASSETS -->
   <a-assets>
@@ -139,14 +172,14 @@
       material="
   metalness: 1;
   roughness: 0.08;
-  envMapIntensity: 2.5" 
+  envMapIntensity: 2.5"
        ring-focus
 state-manager
         camera-focus
         metal-enhance
       drag-rotate
       auto-rotate
-      ="property: position; dir: alternate; dur: 1800; loop: true; to: 0 0.9 0">
+      animation="property: position; dir: alternate; dur: 1800; loop: true; to: 0 0.9 0">
     </a-entity>
   </a-entity>
 
@@ -162,7 +195,7 @@ state-manager
       gltf-model="jewelry-box-ar\daimond_ringg.glb"
       position="0 0.85 0"
       scale="0.2 0.2 0.2"
-      
+
       animation__sparkle="
   property: material.emissiveIntensity;
   from: 0.05;
@@ -187,7 +220,7 @@ material="
         camera-focus
       drag-rotate
       auto-rotate
-      ="property: position; dir: alternate; dur: 2000; loop: true; to: 0 0.95 0">
+      animation="property: position; dir: alternate; dur: 2000; loop: true; to: 0 0.95 0">
     </a-entity>
   </a-entity>
 
@@ -201,8 +234,8 @@ material="
     <a-entity
       class="clickable"
       gltf-model="jewelry-box-ar/silver_ringg.glb"
-      position="0 0.8 0"
-      scale="0.18 0.18 0.18"
+      position="0.02 0.5 0"
+      scale="0.15 0.12 0.12"
 material="
   metalness: 1;
   roughness: 0.12;
@@ -212,12 +245,12 @@ material="
       state-manager
       drag-rotate
       auto-rotate
-      ="property: position; dir: alternate; dur: 2200; loop: true; to: 0 0.9 0">
+      animation="property: position; dir: alternate; dur: 2200; loop: true; to: 0 0.9 0">
     </a-entity>
   </a-entity>
 
   <!-- CLOSE BUTTON -->
-  
+
 
 </a-scene>
 </body>
