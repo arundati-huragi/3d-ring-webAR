@@ -18,7 +18,7 @@
 
 <body>
   <a-entity
-  environment="preset: studio; lighting: none; shadow: true">
+  environment="src: assets/hdr/studio.hdr; lighting: none; shadow: true">
 </a-entity>
 
 
@@ -28,6 +28,9 @@
   exposure: 1.45;
   antialias: true;
   precision: high">
+
+  <!-- HDR BACKGROUND -->
+  <a-sky src="assets/hdr/studio.hdr"></a-sky>
 
 
   <!-- CAMERA -->
@@ -136,7 +139,9 @@
       material="
   metalness: 1;
   roughness: 0.08;
-  envMapIntensity: 2.5"      ring-focus
+  envMapIntensity: 2.5" 
+  envMapIntensity: 2.5
+  ring-focus
 state-manager
         camera-focus
         metal-enhance

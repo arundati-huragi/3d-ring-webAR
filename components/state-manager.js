@@ -4,7 +4,6 @@ AFRAME.registerComponent('state-manager', {
       document.querySelectorAll('.clickable').forEach(ring => {
         if (ring !== this.el) {
           ring.setAttribute('material', 'opacity: 0.35');
-          ring.removeAttribute('auto-rotate');
         }
       });
     });
