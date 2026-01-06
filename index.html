@@ -18,7 +18,7 @@
 
 <body>
   <a-entity
-  environment="src: assets/hdr/studio.hdr; lighting: none; shadow: true">
+  environment="src: assets/hdr/studio.hdr; shadow: true; ground: flat; groundColor: #ffffff; groundColor2: #ffffff">
 </a-entity>
 
 
@@ -30,7 +30,7 @@
   precision: high">
 
   <!-- HDR BACKGROUND -->
-  <a-sky src="assets/hdr/studio.hdr"></a-sky>
+  <a-sky src="assets\hdr\env.hdr"></a-sky>
 
 
   <!-- CAMERA -->
@@ -63,7 +63,7 @@
 
   <!-- ASSETS -->
   <a-assets>
-    <a-asset-item id="boxModel" src="jewelry-box-ar/box.glb"></a-asset-item>
+    <a-asset-item id="boxModel" src="jewelry-box-ar/boxx.glb"></a-asset-item>
     <a-asset-item id="goldRing" src="jewelry-box-ar\gold_ringg.glb"></a-asset-item>
     <a-asset-item id="diamondRing" src="jewelry-box-ar\daimond_ringg.glb"></a-asset-item>
     <a-asset-item id="silverRing" src="jewelry-box-ar\silver_ringg.glb"></a-asset-item>
@@ -117,7 +117,7 @@
   <!-- GOLD -->
   <a-entity position="-3 0 -3">
     <a-entity
-      gltf-model="jewelry-box-ar/box.glb"
+      gltf-model="jewelry-box-ar/boxx.glb"
       scale="10 10 10">
     </a-entity>
 
@@ -140,8 +140,7 @@
   metalness: 1;
   roughness: 0.08;
   envMapIntensity: 2.5" 
-  envMapIntensity: 2.5
-  ring-focus
+       ring-focus
 state-manager
         camera-focus
         metal-enhance
@@ -154,7 +153,7 @@ state-manager
   <!-- DIAMOND -->
   <a-entity position="0 0 -3">
     <a-entity
-      gltf-model="jewelry-box-ar/box.glb"
+      gltf-model="jewelry-box-ar/boxx.glb"
       scale="10 10 10">
     </a-entity>
 
@@ -195,7 +194,7 @@ material="
   <!-- SILVER -->
   <a-entity position="3 0 -3">
     <a-entity
-      gltf-model="jewelry-box-ar/box.glb"
+      gltf-model="jewelry-box-ar/boxx.glb"
       scale="10 10 10">
     </a-entity>
 
